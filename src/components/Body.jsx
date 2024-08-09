@@ -7,6 +7,7 @@ const Body = () => {
   const [infoList, setInfoList] = useState(["A", "B", "C", "D", "E"]);
   const updateList = (item) => {
     setInfoList([...infoList, item]);
+    console.log("Inside update list" + infoList);
   };
 
   return (
