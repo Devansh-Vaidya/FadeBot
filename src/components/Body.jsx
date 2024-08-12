@@ -1,3 +1,4 @@
+import React from "react";
 import ChatHistory from "./ChatHistory";
 import ChatInput from "./ChatInput";
 import { useState } from "react";
@@ -10,7 +11,7 @@ const Body = () => {
   };
 
   return (
-    <div>
+    <div className="relative">
       <ChatHistory infoList={infoList} />
       <ChatInput updateList={updateList} />
     </div>
