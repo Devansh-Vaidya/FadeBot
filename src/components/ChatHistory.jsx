@@ -1,5 +1,3 @@
-import React from "react";
-
 const ChatHistory = () => {
   return <div>ChatHistory</div>;
 };

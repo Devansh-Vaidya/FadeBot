@@ -1,12 +1,15 @@
 import "./App.css";
 import Body from "./components/Body";
+import NavBarComp from "./components/navbar/NavBarComp";
 import { NextUIProvider } from "@nextui-org/react";
 
 function App() {
   return (
     <NextUIProvider>
-      <div className="text-2xl">Vite + React</div>
-      <Body />
+      <main className="dark text-foreground bg-background">
+        <NavBarComp />
+        <Body />
+      </main>
     </NextUIProvider>
   );
 }
