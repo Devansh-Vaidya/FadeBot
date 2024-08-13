@@ -1,4 +1,3 @@
-import React from "react";
 import ChatHistory from "./chat/ChatHistory";
 import ChatInput from "./chat/ChatInput";
 import { useState } from "react";

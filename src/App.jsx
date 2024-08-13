@@ -1,13 +1,14 @@
 import "./App.css";
+import "./fonts.css"
 import Body from "./components/Body";
-import NavBarComp from "./components/navbar/NavBarComp";
+import NavbarComp from "./components/navbar/NavbarComp";
 import { NextUIProvider } from "@nextui-org/react";
 
 function App() {
   return (
     <NextUIProvider>
       <main className="dark text-foreground bg-background">
-        <NavBarComp />
+        <NavbarComp />
         <Body />
       </main>
     </NextUIProvider>
