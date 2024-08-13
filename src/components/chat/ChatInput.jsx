@@ -14,18 +14,27 @@ const ChatInput = (props) => {
 
   return (
     <div className="fixed inset-x-0 bottom-2 flex justify-center">
-      <div className="relative w-4/5">
-        <Textarea
-          key="bordered"
-          label="Input"
-          placeholder="Enter your description"
-          className="resize-none"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <Button isIconOnly className="" onClick={submitButtonClicked} auto>
+      <div className="relative w-4/5 flex items-end">
+        <div className="flex-1 flex-col">
+          <Textarea
+            key="bordered"
+            label="Input"
+            placeholder="Enter your description"
+            className="resize-none"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            minRows={1}
+            maxRows={5}
+          />
+        </div>
+        <Button
+          isIconOnly
+          className="flex rounded-full dark:bg-white dark:text-black"
+          onClick={submitButtonClicked}
+          auto
+        >
           <svg
-            className="w-6 h-6"
+            className="h-6 w-6"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
