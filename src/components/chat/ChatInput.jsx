@@ -1,4 +1,3 @@
-import React from "react";
 import { Textarea, Button } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
@@ -7,30 +6,37 @@ const ChatInput = (props) => {
   const [input, setInput] = useState("");
 
   const submitButtonClicked = () => {
-    props.updateList(input);
-    setInput("");
+    if (input.trim()) {
+      props.updateList(input.trim());
+      setInput("");
+    }
+  };
 
-    console.log("Input " + input);
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      submitButtonClicked();
+    }
   };
 
   return (
-    <div className="relative inset-x-0  flex justify-center">
+    <div className="flex justify-center">
       <div className="fixed bottom-2 w-4/5 flex items-end">
         <div className="flex-1 flex-col">
           <Textarea
-            key="bordered"
             label="Input"
             placeholder="Enter your description"
             className="resize-none"
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onKeyPress={handleKeyPress}
             minRows={1}
             maxRows={5}
           />
         </div>
         <Button
           isIconOnly
-          className="dark:bg-white dark:text-black offset-y-5"
+          className="dark:bg-white dark:text-black"
           onClick={submitButtonClicked}
           auto
         >
