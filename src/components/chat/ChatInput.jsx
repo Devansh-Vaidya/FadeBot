@@ -21,10 +21,11 @@ const ChatInput = (props) => {
 
   return (
     <div className="flex justify-center">
-      <div className="fixed bottom-2 w-4/5 flex items-end">
+      <div className="fixed bottom-5 w-4/5 flex items-end">
         <div className="flex-1 flex-col">
           <Textarea
             label="Input"
+            // variant="bordered"
             placeholder="Enter your description"
             className="resize-none"
             value={input}
@@ -36,11 +37,11 @@ const ChatInput = (props) => {
         </div>
         <Button
           isIconOnly
-          className="dark:bg-white dark:text-black"
+          className="bg-transparent left-1"
           onClick={submitButtonClicked}
           auto
         >
-          <Icon icon="lets-icons:send-hor" width="36" height="36" />
+          <Icon icon="lets-icons:send-hor" width="32" height="32" />
         </Button>
       </div>
     </div>
