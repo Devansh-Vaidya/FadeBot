@@ -24,22 +24,21 @@ const ChatInput = (props) => {
       <div className="fixed bottom-5 w-4/5 flex items-end">
         <div className="flex-1 flex-col">
           <Textarea
-            label="Input"
             // variant="bordered"
-            placeholder="Enter your description"
+            placeholder="Write your message here!"
             className="resize-none"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyPress}
             minRows={1}
             maxRows={5}
           />
         </div>
         <Button
+          isDisabled={input.trim() === "" ? true : false}
           isIconOnly
           className="bg-transparent left-1"
           onClick={submitButtonClicked}
-          auto
         >
           <Icon icon="lets-icons:send-hor" width="32" height="32" />
         </Button>

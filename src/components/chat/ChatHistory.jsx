@@ -9,7 +9,7 @@ const ChatHistory = ({ infoList }) => {
           key={index}
           className={`flex ${
             index % 2 === 0 ? "justify-end" : "justify-start"
-          } items-center my-1`}
+          } items-center my-2`}
         >
           {index % 2 === 0 ? (
             <Avatar
@@ -19,7 +19,7 @@ const ChatHistory = ({ infoList }) => {
           ) : (
             <Avatar src={metaIcon} className="mr-2" />
           )}
-          <Card className="max-w-7/10 p-1.5 bg-gray-800 text-white">
+          <Card className="max-w-prose p-1.5 bg-gray-800 text-white">
             {message}
           </Card>
         </div>
