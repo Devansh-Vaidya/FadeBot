@@ -1,26 +1,38 @@
 import { Card, Avatar } from "@nextui-org/react";
 import metaIcon from "../../assets/logos--meta-icon.svg";
+import fetchAvatarImage from "../../utils/APIcalls";
+import { useState, useEffect, useRef } from "react";
 
 const ChatHistory = ({ infoList }) => {
+  const [avatarURL, setAvatarURL] = useState("");
+  useEffect(() => {
+    const getAvatar = async () => {
+      const url = await fetchAvatarImage();
+      setAvatarURL(url);
+    };
+
+    getAvatar();
+  }, []);
+  
   return (
     <div className="flex flex-col p-4 overflow-y-auto h-full">
       {infoList.map((message, index) => (
         <div
           key={index}
           className={`flex ${
-            index % 2 === 0 ? "justify-end" : "justify-start"
+            index % 2 === 0 ? "flex-row-reverse" : ""
           } items-center my-2`}
         >
-          {message['role'] === "system"? (
-            <Avatar
-              src="https://images.unsplash.com/photo-1469297677538-c7312a64dbe8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="mr-2"
-            />
+          {message["role"] === "system" ? (
+            <Avatar src={metaIcon} className="mx-2" />
           ) : (
-            <Avatar src={metaIcon} className="mr-2" />
+            <Avatar
+              src={avatarURL}
+              className="mx-2"
+            />
           )}
-          <Card className="max-w-prose p-1.5 bg-gray-800 text-white">
-            {message['content']}
+          <Card className="max-w-prose p-1.5 bg-gray-800 text-white px-3 py-2 text-justify">
+            {message["content"]}
           </Card>
         </div>
       ))}

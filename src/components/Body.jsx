@@ -8,10 +8,9 @@ const Body = () => {
   const updateList = async (inputPrompt) => {
     let updatedList = [...infoList, {role: "user", content: inputPrompt}];
     setInfoList(updatedList);
-    const response = await LlamaBot(updatedList);
-    updatedList = [...updatedList, {role: "system", content: response}];
+    // const response = await LlamaBot(updatedList);
+    // updatedList = [...updatedList, {role: "system", content: response}];
     setInfoList(updatedList);
-    console.log("Info list updated", infoList);
   };
 
   return (
