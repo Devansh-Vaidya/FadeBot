@@ -11,7 +11,7 @@ const ChatHistory = ({ infoList }) => {
             index % 2 === 0 ? "justify-end" : "justify-start"
           } items-center my-2`}
         >
-          {index % 2 === 0 ? (
+          {message['role'] === "system"? (
             <Avatar
               src="https://images.unsplash.com/photo-1469297677538-c7312a64dbe8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               className="mr-2"
@@ -20,7 +20,7 @@ const ChatHistory = ({ infoList }) => {
             <Avatar src={metaIcon} className="mr-2" />
           )}
           <Card className="max-w-prose p-1.5 bg-gray-800 text-white">
-            {message}
+            {message['content']}
           </Card>
         </div>
       ))}

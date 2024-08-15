@@ -1,7 +1,7 @@
 import React from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
 
-export default function NavbarComp() {
+export default function NavBarComp() {
   return (
     <Navbar isBordered maxWidth={"full"} className="bg-zinc-900">
       <NavbarBrand className="ms-4">

@@ -1,12 +1,12 @@
 import "./App.css";
 import "./fonts.css";
 import Body from "./components/Body";
-import NavbarComp from "./components/navbar/NavbarComp";
+import NavBarComp from "./components/navbar/NavBarComp";
 
 function App() {
   return (
     <div>
-      <NavbarComp />
+      <NavBarComp />
       <Body />
     </div>
   );

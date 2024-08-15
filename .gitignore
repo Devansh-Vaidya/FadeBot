@@ -46,3 +46,6 @@ dist-ssr
 # # typescript
 # *.tsbuildinfo
 # next-env.d.ts
+
+# config files
+config.json
