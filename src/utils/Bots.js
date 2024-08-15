@@ -6,8 +6,9 @@ const LlamaBot = async (promptMessages) => {
     const apiKey = configData["llama-api-key"];
     const llamaAPI = new LlamaAI(apiKey);
     const apiRequestJson = {
-      model: "llama-70b-chat",
+      model: "llama-8b-chat",
       messages: promptMessages,
+      "max_token": 500,
     };
     console.log(promptMessages)
 
