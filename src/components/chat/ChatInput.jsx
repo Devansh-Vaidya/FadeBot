@@ -2,7 +2,7 @@ import { Textarea, Button } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 
-const ChatInput = (props) => {
+const ChatInput = ({ updateList }) => {
   // Input field for chat messages
   const [input, setInput] = useState("");
 
@@ -15,7 +15,7 @@ const ChatInput = (props) => {
       let chat = input.trim();
       setInput("");
       try {
-        await props.updateList(chat);
+        await updateList(chat);
       } finally {
         setLoading(false); // Re-enable the button
       }

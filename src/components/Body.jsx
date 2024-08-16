@@ -1,15 +1,16 @@
+import { useState } from "react";
 import ChatHistory from "./chat/ChatHistory";
 import ChatInput from "./chat/ChatInput";
-import GroqBot from "../utils/Bots";
-import { useState } from "react";
+import GroqBot from "../utils/Bots.js";
 import bgWallpaper from "../assets/bg-wallpaper.jpg";
 
-const Body = () => {
+const Body = ({ model }) => {
   const [infoList, setInfoList] = useState([]);
   const updateList = async (inputPrompt) => {
     let updatedList = [...infoList, { role: "user", content: inputPrompt }];
     setInfoList(updatedList);
-    const response = await GroqBot(updatedList);
+    let response = await GroqBot(model, updatedList);
+
     updatedList = [...updatedList, { role: "system", content: response }];
     setInfoList(updatedList);
   };

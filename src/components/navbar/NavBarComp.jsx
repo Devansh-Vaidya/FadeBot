@@ -1,18 +1,29 @@
-import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+} from "@nextui-org/react";
+import ModelDropdown from "./ModelDropdown";
 
-export default function NavBarComp() {
+export default function NavBarComp({ model, changeModel }) {
   return (
-    <Navbar isBordered maxWidth={"full"} className="bg-zinc-950 h-[10vh] bg-opacity-0">
+    <Navbar
+      isBordered
+      maxWidth={"full"}
+      className="bg-zinc-950 h-[10vh] bg-opacity-0"
+    >
       <NavbarBrand className="ms-4">
-        <NavbarItem className="text-3xl pompiere-regular tracking-[1em]">FADEBOT</NavbarItem>
+        <NavbarItem className="text-3xl pompiere-regular tracking-[1em]">
+          FADEBOT
+        </NavbarItem>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-6" justify="center">
         {/* For models to be added in future */}
       </NavbarContent>
       <NavbarContent justify="end" className="me-8">
         <NavbarItem className="text-xl arima-500">
-          Llama 3
+          <ModelDropdown model={model} changeModel={changeModel} />
         </NavbarItem>
       </NavbarContent>
     </Navbar>

@@ -1,7 +1,7 @@
+import { useState, useEffect } from "react";
 import { Card, Avatar } from "@nextui-org/react";
 import metaIcon from "../../assets/logos--meta-icon.svg";
 import fetchAvatarImage from "../../utils/APIcalls";
-import { useState, useEffect, useRef } from "react";
 
 const ChatHistory = ({ infoList }) => {
   const [avatarURL, setAvatarURL] = useState("");
@@ -24,11 +24,24 @@ const ChatHistory = ({ infoList }) => {
           } items-center my-2`}
         >
           {message["role"] === "system" ? (
-            <Avatar isBordered color="#000000" src={metaIcon} className="mx-2" />
+            <Avatar
+              isBordered
+              color="#000000"
+              src={metaIcon}
+              className="mx-2"
+            />
           ) : (
-            <Avatar isBordered color="warning" src={avatarURL} className="mx-2" />
+            <Avatar
+              isBordered
+              color="warning"
+              src={avatarURL}
+              className="mx-2"
+            />
           )}
-          <Card shadow className="max-w-[45%] p-1.5 bg-cyan-900 bg-opacity-80 text-white px-3 py-2 mx-1 text-justify">
+          <Card
+            shadow
+            className="max-w-[45%] p-1.5 bg-cyan-900 bg-opacity-80 text-white px-3 py-2 mx-1 text-justify"
+          >
             {message["content"]}
           </Card>
         </div>
