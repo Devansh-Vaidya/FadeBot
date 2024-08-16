@@ -12,11 +12,12 @@ const ChatInput = (props) => {
   const submitButtonClicked = async () => {
     if (input.trim()) {
       setLoading(true); // Disable the button
+      let chat = input.trim();
+      setInput("");
       try {
-        await props.updateList(input.trim());
+        await props.updateList(chat);
       } finally {
         setLoading(false); // Re-enable the button
-        setInput("");
       }
     }
   };
