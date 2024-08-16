@@ -13,7 +13,7 @@ const ChatHistory = ({ infoList }) => {
 
     getAvatar();
   }, []);
-  
+
   return (
     <div className="flex flex-col p-4 overflow-y-auto h-full">
       {infoList.map((message, index) => (
@@ -26,10 +26,7 @@ const ChatHistory = ({ infoList }) => {
           {message["role"] === "system" ? (
             <Avatar src={metaIcon} className="mx-2" />
           ) : (
-            <Avatar
-              src={avatarURL}
-              className="mx-2"
-            />
+            <Avatar src={avatarURL} className="mx-2" />
           )}
           <Card className="max-w-prose p-1.5 bg-gray-800 text-white px-3 py-2 text-justify">
             {message["content"]}
