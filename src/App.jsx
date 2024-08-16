@@ -5,7 +5,7 @@ import NavBarComp from "./components/navbar/NavBarComp";
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen">
       <NavBarComp />
       <Body />
     </div>

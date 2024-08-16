@@ -3,7 +3,7 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nex
 
 export default function NavBarComp() {
   return (
-    <Navbar isBordered maxWidth={"full"} className="bg-zinc-900">
+    <Navbar isBordered maxWidth={"full"} className="bg-zinc-950 h-[10vh] bg-opacity-0">
       <NavbarBrand className="ms-4">
         <NavbarItem className="text-3xl pompiere-regular tracking-[1em]">FADEBOT</NavbarItem>
       </NavbarBrand>

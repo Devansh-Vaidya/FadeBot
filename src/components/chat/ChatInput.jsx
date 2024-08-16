@@ -30,8 +30,8 @@ const ChatInput = (props) => {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="fixed bottom-5 w-4/5 flex items-end">
+    <div className="flex justify-center h-[10vh] py-8 border-t-2 border-zinc-800">
+      <div className="w-4/5 flex items-end">
         <div className="flex-1 flex-col">
           <Textarea
             placeholder="Write your message here!"

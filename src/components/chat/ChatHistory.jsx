@@ -15,7 +15,7 @@ const ChatHistory = ({ infoList }) => {
   }, []);
 
   return (
-    <div className="flex flex-col p-4 overflow-y-auto h-full">
+    <div className="flex flex-col p-4 overflow-y-auto h-[80vh]">
       {infoList.map((message, index) => (
         <div
           key={index}
@@ -24,11 +24,11 @@ const ChatHistory = ({ infoList }) => {
           } items-center my-2`}
         >
           {message["role"] === "system" ? (
-            <Avatar src={metaIcon} className="mx-2" />
+            <Avatar isBordered color="#000000" src={metaIcon} className="mx-2" />
           ) : (
-            <Avatar src={avatarURL} className="mx-2" />
+            <Avatar isBordered color="warning" src={avatarURL} className="mx-2" />
           )}
-          <Card className="max-w-prose p-1.5 bg-gray-800 text-white px-3 py-2 text-justify">
+          <Card shadow className="max-w-[45%] p-1.5 bg-cyan-900 bg-opacity-80 text-white px-3 py-2 mx-1 text-justify">
             {message["content"]}
           </Card>
         </div>
