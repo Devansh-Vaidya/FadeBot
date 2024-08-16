@@ -3,17 +3,26 @@ import { Icon } from "@iconify/react";
 import { useState } from "react";
 
 const ChatInput = (props) => {
+  // Input field for chat messages
   const [input, setInput] = useState("");
 
-  const submitButtonClicked = () => {
+  // Loading state for the submit button
+  const [loading, setLoading] = useState(false);
+
+  const submitButtonClicked = async () => {
     if (input.trim()) {
-      props.updateList(input.trim());
-      setInput("");
+      setLoading(true); // Disable the button
+      try {
+        await props.updateList(input.trim());
+      } finally {
+        setLoading(false); // Re-enable the button
+        setInput("");
+      }
     }
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (!loading && e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       submitButtonClicked();
     }
@@ -24,7 +33,6 @@ const ChatInput = (props) => {
       <div className="fixed bottom-5 w-4/5 flex items-end">
         <div className="flex-1 flex-col">
           <Textarea
-            // variant="bordered"
             placeholder="Write your message here!"
             className="resize-none"
             value={input}
@@ -35,10 +43,10 @@ const ChatInput = (props) => {
           />
         </div>
         <Button
-          isDisabled={input.trim() === "" ? true : false}
           isIconOnly
           className="bg-transparent left-1"
           onClick={submitButtonClicked}
+          isDisabled={input.trim() === "" || loading ? true : false}
         >
           <Icon icon="lets-icons:send-hor" width="32" height="32" />
         </Button>
