@@ -14,7 +14,7 @@
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.4",
     "framer-motion": "^11.3.23",
-    "llamaai": "^1.0.4",
+    "groq-sdk": "^0.5.0",
     "node-fetch": "^3.3.2",
     "postcss": "^8.4.41",
     "react": "^18.3.1",

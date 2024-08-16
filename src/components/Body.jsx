@@ -1,15 +1,15 @@
 import ChatHistory from "./chat/ChatHistory";
 import ChatInput from "./chat/ChatInput";
-import LlamaBot from "../utils/Bots";
+import GroqBot from "../utils/Bots";
 import { useState } from "react";
 
 const Body = () => {
   const [infoList, setInfoList] = useState([]);
   const updateList = async (inputPrompt) => {
-    let updatedList = [...infoList, {role: "user", content: inputPrompt}];
+    let updatedList = [...infoList, { role: "user", content: inputPrompt }];
     setInfoList(updatedList);
-    // const response = await LlamaBot(updatedList);
-    // updatedList = [...updatedList, {role: "system", content: response}];
+    const response = await GroqBot(updatedList);
+    updatedList = [...updatedList, { role: "system", content: response }];
     setInfoList(updatedList);
   };
 

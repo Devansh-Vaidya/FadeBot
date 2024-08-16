@@ -1,25 +1,19 @@
-import LlamaAI from "llamaai";
+import Groq from "groq-sdk";
 import configData from "../../config.json";
 
-const LlamaBot = async (promptMessages) => {
-  try {
-    const apiKey = configData["llama-api-key"];
-    const llamaAPI = new LlamaAI(apiKey);
-    const apiRequestJson = {
-      model: "llama-8b-chat",
-      messages: promptMessages,
-      "max_token": 500,
-    };
-    console.log(promptMessages)
+const GroqBot = async (promptMessages) => {
+  const apiKey = configData["GROQ_API_KEY"];
 
-    const response = await llamaAPI.run(apiRequestJson);
-    
-    console.log("working", response['choices'][0]['message']['content']);
-    return response['choices'][0]['message']['content'];
-  } catch (error) {
-    console.error(error);
-    return "";
-  }
+  const groq = new Groq({ apiKey: apiKey, dangerouslyAllowBrowser: true });
+
+  let reponse = await groq.chat.completions.create({
+    messages: promptMessages,
+    model: "llama-3.1-70b-versatile",
+  });
+
+  let errorMessage = "The bot is not responding. Please try again later.";
+
+  return reponse["choices"][0]["message"]["content"] || errorMessage;
 };
 
-export default LlamaBot;
+export default GroqBot;
