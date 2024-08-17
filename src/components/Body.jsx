@@ -2,7 +2,6 @@ import { useState } from "react";
 import ChatHistory from "./chat/ChatHistory";
 import ChatInput from "./chat/ChatInput";
 import GroqBot from "../utils/Bots.js";
-import bgWallpaper from "../assets/bg-wallpaper.jpg";
 
 export default function Body({ model }) {
   const [infoList, setInfoList] = useState([]);
@@ -17,11 +16,7 @@ export default function Body({ model }) {
 
   return (
     <div className="relative flex flex-col min-h-[90vh]">
-      <div className="absolute inset-0 bg-black opacity-60"></div>
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-25"
-        style={{ backgroundImage: `url(${bgWallpaper})` }}
-      ></div>
+      
       <div className="relative z-10 flex-1 overflow-auto">
         <ChatHistory infoList={infoList} />
       </div>
