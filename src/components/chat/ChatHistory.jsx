@@ -3,7 +3,7 @@ import { Card, Avatar } from "@nextui-org/react";
 import metaIcon from "../../assets/logos--meta-icon.svg";
 import fetchAvatarImage from "../../utils/APIcalls";
 
-const ChatHistory = ({ infoList }) => {
+export default function ChatHistory({ infoList }) {
   const [avatarURL, setAvatarURL] = useState("");
   useEffect(() => {
     const getAvatar = async () => {
@@ -48,6 +48,4 @@ const ChatHistory = ({ infoList }) => {
       ))}
     </div>
   );
-};
-
-export default ChatHistory;
+}

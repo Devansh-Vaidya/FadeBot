@@ -2,7 +2,7 @@ import { Textarea, Button } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 
-const ChatInput = ({ updateList }) => {
+export default function ChatInput({ updateList }) {
   // Input field for chat messages
   const [input, setInput] = useState("");
 
@@ -54,6 +54,4 @@ const ChatInput = ({ updateList }) => {
       </div>
     </div>
   );
-};
-
-export default ChatInput;
+}

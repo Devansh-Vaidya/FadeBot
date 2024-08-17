@@ -4,7 +4,7 @@ import ChatInput from "./chat/ChatInput";
 import GroqBot from "../utils/Bots.js";
 import bgWallpaper from "../assets/bg-wallpaper.jpg";
 
-const Body = ({ model }) => {
+export default function Body({ model }) {
   const [infoList, setInfoList] = useState([]);
   const updateList = async (inputPrompt) => {
     let updatedList = [...infoList, { role: "user", content: inputPrompt }];
@@ -28,6 +28,4 @@ const Body = ({ model }) => {
       <ChatInput updateList={updateList} />
     </div>
   );
-};
-
-export default Body;
+}

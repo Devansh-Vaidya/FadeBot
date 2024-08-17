@@ -8,7 +8,7 @@ import {
 } from "@nextui-org/react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
-const ModelDropdown = ({ model, changeModel }) => {
+export default function ModelDropdown({ model, changeModel }) {
   const [selectedModel, setSelectedModel] = useState(model);
 
   return (
@@ -34,6 +34,4 @@ const ModelDropdown = ({ model, changeModel }) => {
       </DropdownMenu>
     </Dropdown>
   );
-};
-
-export default ModelDropdown;
+}

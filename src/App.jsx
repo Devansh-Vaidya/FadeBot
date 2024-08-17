@@ -4,7 +4,7 @@ import { useState } from "react";
 import Body from "./components/Body";
 import NavBarComp from "./components/navbar/NavBarComp";
 
-function App() {
+export default function App() {
   const [model, setModel] = useState("Llama 3");
 
   // Change the model
@@ -20,5 +20,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
