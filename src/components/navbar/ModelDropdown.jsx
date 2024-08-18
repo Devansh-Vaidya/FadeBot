@@ -9,13 +9,14 @@ import {
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 export default function ModelDropdown({ model, changeModel }) {
-  const [selectedModel, setSelectedModel] = useState(model);
+  const [selectedModels, setSelectedModels] = useState(new Set([model]));
 
   return (
     <Dropdown className="bg-black bg-opacity-50 text-white">
       <DropdownTrigger>
         <Button variant="bordered" className="capitalize">
-          {selectedModel} <Icon icon="akar-icons:chevron-down" />
+          {Array.from(selectedModels).join(", ")}{" "}
+          <Icon icon="akar-icons:chevron-down" />
         </Button>
       </DropdownTrigger>
       <DropdownMenu
@@ -23,10 +24,10 @@ export default function ModelDropdown({ model, changeModel }) {
         variant="flat"
         disallowEmptySelection
         selectionMode="single"
-        selectedModel={selectedModel}
-        onSelectionChange={(e) => {
-          setSelectedModel(e.currentKey);
-          changeModel(e.currentKey);
+        selectedKeys={selectedModels}
+        onSelectionChange={(models) => {
+          setSelectedModels(models);
+          changeModel(Array.from(models).join(", "));
         }}
       >
         <DropdownItem key="Llama 3">Llama 3</DropdownItem>

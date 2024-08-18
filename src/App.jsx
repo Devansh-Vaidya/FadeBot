@@ -10,7 +10,6 @@ export default function App() {
   // Change the model
   const changeModel = (modelName) => {
     setModel(modelName);
-    console.log("Model changed to", modelName);
   };
 
   return (

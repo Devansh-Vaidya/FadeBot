@@ -10,11 +10,16 @@ const GroqBot = async (botName, promptMessages) => {
   switch (botName) {
     case "Llama 3":
       model = "llama-3.1-70b-versatile";
+      break;
     case "Gemma 2":
       model = "gemma2-9b-it";
+      break;
     default:
       model = "llama-3.1-70b-versatile";
+      break;
   }
+
+  console.log("Model: ", model);
 
   let reponse = await groq.chat.completions.create({
     messages: promptMessages,
