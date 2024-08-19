@@ -14,7 +14,7 @@ export default function NavBarComp({ model, changeModel }) {
       className="bg-zinc-950 h-[10vh] bg-opacity-0"
     >
       <NavbarBrand className="ms-4">
-        <NavbarItem className="text-3xl kode-mono tracking-[1em]">
+        <NavbarItem className="text-3xl kode-mono tracking-[0.5em]">
           FADEBOT
         </NavbarItem>
       </NavbarBrand>
