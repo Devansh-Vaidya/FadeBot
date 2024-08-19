@@ -15,8 +15,7 @@ export default function Body({ model }) {
   };
 
   return (
-    <div className="relative flex flex-col min-h-[90vh]">
-      
+    <div className="flex flex-col">
       <div className="relative z-10 flex-1 overflow-auto">
         <ChatHistory infoList={infoList} />
       </div>

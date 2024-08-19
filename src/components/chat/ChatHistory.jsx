@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, Avatar } from "@nextui-org/react";
 import metaIcon from "../../assets/logos--meta-icon.svg";
 import fetchAvatarImage from "../../utils/APIcalls";
 
 export default function ChatHistory({ infoList }) {
   const [avatarURL, setAvatarURL] = useState("");
+  const endOfMessagesRef = useRef(null);
+
   useEffect(() => {
     const getAvatar = async () => {
       const url = await fetchAvatarImage();
@@ -13,6 +15,11 @@ export default function ChatHistory({ infoList }) {
 
     getAvatar();
   }, []);
+
+  // Scroll to the latest message when infoList changes
+  useEffect(() => {
+    endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [infoList]);
 
   return (
     <div className="flex flex-col p-4 overflow-y-auto h-[80vh]">
@@ -46,6 +53,7 @@ export default function ChatHistory({ infoList }) {
           </Card>
         </div>
       ))}
+      <div ref={endOfMessagesRef} />
     </div>
   );
 }
