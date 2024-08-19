@@ -12,7 +12,7 @@ export default function ModelDropdown({ model, changeModel }) {
   const [selectedModels, setSelectedModels] = useState(new Set([model]));
 
   return (
-    <Dropdown className="bg-black bg-opacity-50 text-white">
+    <Dropdown className="text-white bg-zinc-950 bg-opacity-80">
       <DropdownTrigger>
         <Button variant="bordered" className="capitalize">
           {Array.from(selectedModels).join(", ")}{" "}
@@ -21,7 +21,7 @@ export default function ModelDropdown({ model, changeModel }) {
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Select Model"
-        variant="flat"
+        variant="bordered"
         disallowEmptySelection
         selectionMode="single"
         selectedKeys={selectedModels}
