@@ -6,7 +6,11 @@ import NavBarComp from "./components/navbar/NavBarComp";
 import bgWallpaper from "./assets/bg-wallpaper.jpg";
 
 export default function App() {
-  const [model, setModel] = useState("Llama 3");
+  const botModels = {
+    "Llama 3": "llama-3.1-70b-versatile",
+    "Gemma 2": "gemma2-9b-it",
+  };
+  const [model, setModel] = useState(Object.keys(botModels)[0]);
 
   // Change the model
   const changeModel = (modelName) => {
@@ -19,8 +23,8 @@ export default function App() {
         className="absolute inset-0 bg-cover bg-center opacity-30"
         style={{ backgroundImage: `url(${bgWallpaper})` }}
       ></div>
-      <NavBarComp model={model} changeModel={changeModel} />
-      <Body model={model} />
+      <NavBarComp model={model} changeModel={changeModel} botModels={botModels} />
+      <Body model={botModels[model]} />
     </div>
   );
 }

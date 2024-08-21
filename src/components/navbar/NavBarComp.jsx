@@ -6,7 +6,7 @@ import {
 } from "@nextui-org/react";
 import ModelDropdown from "./ModelDropdown";
 
-export default function NavBarComp({ model, changeModel }) {
+export default function NavBarComp({ model, changeModel, botModels }) {
   return (
     <Navbar
       isBordered
@@ -23,7 +23,7 @@ export default function NavBarComp({ model, changeModel }) {
       </NavbarContent>
       <NavbarContent justify="end" className="me-8">
         <NavbarItem className="text-xl arima-500">
-          <ModelDropdown model={model} changeModel={changeModel} />
+          <ModelDropdown model={model} changeModel={changeModel} botModels={botModels} />
         </NavbarItem>
       </NavbarContent>
     </Navbar>

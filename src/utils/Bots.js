@@ -14,12 +14,6 @@ export default async function GroqBot(botName, promptMessages) {
     model: botModels[botName],
   };
 
-  // Log the request body for debugging purposes
-  console.log("Request Body: ", requestBody);
-
-  // Log the bot model being used for debugging purposes
-  console.log("Bot Model: ", botModels[botName]);
-
   try {
     // Make the POST request to the Groq API
     let response = await fetch(configData["GROQ_API"], {
@@ -32,9 +26,6 @@ export default async function GroqBot(botName, promptMessages) {
 
     // Parse the JSON response from the API
     let jsonResponse = await response.json();
-
-    // Log the entire response object for debugging
-    console.log("Response: ", response);
 
     // Return the message from the JSON response, or a default error message if not available
     let errorMessage = "The bot is not responding. Please try again later.";
