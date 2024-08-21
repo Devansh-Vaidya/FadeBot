@@ -9,11 +9,13 @@ export default function App() {
   const botModels = {
     "Llama 3": "llama-3.1-70b-versatile",
     "Gemma 2": "gemma2-9b-it",
+    "Mixtral 8x7B": "mixtral-8x7b-32768"
   };
   const [model, setModel] = useState(Object.keys(botModels)[0]);
 
   // Change the model
   const changeModel = (modelName) => {
+    console.log(modelName, botModels[model])
     setModel(modelName);
   };
 

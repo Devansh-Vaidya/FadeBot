@@ -1,18 +1,13 @@
 import configData from "../../config.json";
 
-// Global dictionary for bot models with their corresponding API names
-const botModels = {
-  "Llama 3": "llama-3.1-70b-versatile",
-  "Gemma 2": "gemma2-9b-it",
-};
-
 // Asynchronous function to interact with the Groq API based on bot name and prompt messages
 export default async function GroqBot(botName, promptMessages) {
   // Create the request body for the API call with messages and model based on botName
   const requestBody = {
     messages: promptMessages,
-    model: botModels[botName],
+    model: botName,
   };
+  console.log("Request body:", requestBody);
 
   try {
     // Make the POST request to the Groq API

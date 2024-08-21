@@ -8,6 +8,7 @@ export default function Body({ model }) {
   const updateList = async (inputPrompt) => {
     let updatedList = [...infoList, { role: "user", content: inputPrompt }];
     setInfoList(updatedList);
+    console.log(model, updatedList);
     let response = await GroqBot(model, updatedList);
 
     updatedList = [...updatedList, { role: "system", content: response }];
