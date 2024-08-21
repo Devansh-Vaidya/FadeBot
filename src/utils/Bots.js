@@ -1,4 +1,3 @@
-import Groq from "groq-sdk";
 import configData from "../../config.json";
 
 // Global dictionary for bot models
@@ -8,17 +7,27 @@ const botModels = {
 };
 
 export default async function GroqBot(botName, promptMessages) {
-  const apiKey = configData["GROQ_API_KEY"];
-  const groq = new Groq({ apiKey: apiKey, dangerouslyAllowBrowser: true });
+  const requestBody = {
+    messages: promptMessages,
+    model: botModels[botName],
+  };
+
+  console.log("Request Body: ", requestBody);
 
   console.log("Bot Model: ", botModels[botName]);
 
-  let reponse = await groq.chat.completions.create({
-    messages: promptMessages,
-    model: botModels[botName],
+  // Get the model response from API
+  let response = await fetch(configData["GROQ_API"], {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(requestBody),
   });
+
+  console.log("Response: ", response);
 
   let errorMessage = "The bot is not responding. Please try again later.";
 
-  return reponse["choices"][0]["message"]["content"] || errorMessage;
+  return response["message"] || errorMessage;
 }
