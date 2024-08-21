@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ChatHistory from "./chat/ChatHistory";
-import ChatInput from "./chat/ChatInput";
+import ChatBar from "./chat/ChatBar";
 import GroqBot from "../utils/Bots.js";
 
 export default function Body({ model }) {
@@ -20,7 +20,7 @@ export default function Body({ model }) {
       <div className="relative z-10 flex-1 overflow-auto">
         <ChatHistory infoList={infoList} />
       </div>
-      <ChatInput updateList={updateList} />
+      <ChatBar updateList={updateList} />
     </div>
   );
 }

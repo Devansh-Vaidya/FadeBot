@@ -30,28 +30,24 @@ export default function ChatInput({ updateList }) {
   };
 
   return (
-    <div className="flex justify-center h-[10vh] py-8 border-t-2 border-zinc-800">
-      <div className="w-4/5 flex items-end">
-        <div className="flex-1 flex-col">
-          <Textarea
-            placeholder="Write your message here!"
-            className="resize-none"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyPress}
-            minRows={1}
-            maxRows={5}
-          />
-        </div>
-        <Button
-          isIconOnly
-          className="bg-transparent left-1"
-          onClick={submitButtonClicked}
-          isDisabled={input.trim() === "" || loading ? true : false}
-        >
-          <Icon icon="lets-icons:send-hor" width="32" height="32" />
-        </Button>
-      </div>
+    <div className="w-[60vh] flex flex-1 justify-center items-center">
+      <Textarea
+        placeholder="Write your message here!"
+        className="resize-none"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyDown={handleKeyPress}
+        minRows={1}
+        maxRows={5}
+      />
+      <Button
+        isIconOnly
+        className="bg-transparent left-1"
+        onClick={submitButtonClicked}
+        isDisabled={input.trim() === "" || loading ? true : false}
+      >
+        <Icon icon="lets-icons:send-hor" width="32" height="32" />
+      </Button>
     </div>
   );
 }
