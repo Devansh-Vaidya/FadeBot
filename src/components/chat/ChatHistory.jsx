@@ -3,7 +3,7 @@ import { Card, Avatar } from "@nextui-org/react";
 import metaIcon from "../../assets/logos--meta-icon.svg";
 import fetchAvatarImage from "../../utils/APIcalls";
 
-export default function ChatHistory({ infoList }) {
+export default function ChatHistory({ chatList }) {
   const [avatarURL, setAvatarURL] = useState("");
   const endOfMessagesRef = useRef(null);
 
@@ -16,14 +16,9 @@ export default function ChatHistory({ infoList }) {
     getAvatar();
   }, []);
 
-  // Scroll to the latest message when infoList changes
-  useEffect(() => {
-    endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [infoList]);
-
   return (
     <div className="flex flex-col p-4 overflow-y-auto h-[80vh]">
-      {infoList.map((message, index) => (
+      {chatList.map((message, index) => (
         <div
           key={index}
           className={`flex ${
