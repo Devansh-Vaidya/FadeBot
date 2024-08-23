@@ -30,7 +30,7 @@ export default function ChatInput({ updateList }) {
   };
 
   return (
-    <div className="w-[60vh] flex flex-1 justify-center items-center">
+    <div className="w-[65vh] flex flex-1 justify-center items-center">
       <Textarea
         placeholder="Write your message here!"
         className="resize-none"

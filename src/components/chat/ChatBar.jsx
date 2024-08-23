@@ -2,14 +2,12 @@ import ClearChat from "./ClearChat";
 import ChatInput from "./ChatInput";
 import ChatImportExport from "./ChatImportExport";
 
-const ChatBar = (props) => {
+export default function ChatBar({ updateList, clearList }) {
   return (
     <div className="flex h-[10vh] py-8 border-t-2 border-zinc-800">
-      <ClearChat />
-      <ChatInput updateList={props.updateList} />
+      <ClearChat clearList={clearList} />
+      <ChatInput updateList={updateList} />
       <ChatImportExport />
     </div>
   );
-};
-
-export default ChatBar;
+}
