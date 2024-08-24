@@ -1,9 +1,7 @@
-import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { Avatar, Card } from "@nextui-org/react";
 import metaIcon from "../../assets/fadebot.png";
 import fetchAvatarImage from "../../utils/APIcalls";
-import Markdown from "markdown-to-jsx";
 
 export default function ChatHistory({ chatList }) {
   const [avatarURL, setAvatarURL] = useState("");
@@ -51,7 +49,7 @@ export default function ChatHistory({ chatList }) {
             shadow
             className="max-w-[45%] p-1.5 bg-cyan-900 bg-opacity-80 text-white px-3 py-2 mx-1 text-justify"
           >
-            <Markdown>{message["content"]}</Markdown>
+            {message["content"]}
           </Card>
         </div>
       ))}
