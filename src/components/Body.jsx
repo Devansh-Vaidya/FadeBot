@@ -9,8 +9,6 @@ export default function Body({ model }) {
   const updateList = async (inputPrompt) => {
     let updatedList = [...chatList, { role: "user", content: inputPrompt }];
     setChatList(updatedList);
-
-    console.log(model, updatedList);
     let response = await GroqBot(model, updatedList);
     updatedList = [...updatedList, { role: "system", content: response }];
     setChatList(updatedList);
@@ -26,9 +24,7 @@ export default function Body({ model }) {
 
   return (
     <div className="flex flex-col">
-      <div className="relative z-10 flex-1 overflow-auto">
-        <ChatHistory chatList={chatList} />
-      </div>
+      <ChatHistory chatList={chatList} />
       <ChatBar
         updateList={updateList}
         clearList={clearList}

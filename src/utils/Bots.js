@@ -7,7 +7,6 @@ export default async function GroqBot(botName, promptMessages) {
     messages: promptMessages,
     model: botName,
   };
-  console.log("Request body:", requestBody);
 
   try {
     // Make the POST request to the Groq API

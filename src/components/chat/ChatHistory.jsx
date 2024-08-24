@@ -1,7 +1,9 @@
+import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { Card, Avatar } from "@nextui-org/react";
-import metaIcon from "../../assets/logos--meta-icon.svg";
+import { Avatar, Card } from "@nextui-org/react";
+import metaIcon from "../../assets/fadebot.png";
 import fetchAvatarImage from "../../utils/APIcalls";
+import Markdown from "markdown-to-jsx";
 
 export default function ChatHistory({ chatList }) {
   const [avatarURL, setAvatarURL] = useState("");
@@ -22,7 +24,7 @@ export default function ChatHistory({ chatList }) {
   }, [chatList]);
 
   return (
-    <div className="flex flex-col p-4 overflow-y-auto h-[80vh]">
+    <div className="h-[80vh] overflow-y-auto p-4" id="chat">
       {chatList.map((message, index) => (
         <div
           key={index}
@@ -33,14 +35,14 @@ export default function ChatHistory({ chatList }) {
           {message["role"] === "system" ? (
             <Avatar
               isBordered
-              color="#000000"
+              color="default"
               src={metaIcon}
               className="mx-2"
             />
           ) : (
             <Avatar
               isBordered
-              color="warning"
+              color="default"
               src={avatarURL}
               className="mx-2"
             />
@@ -49,7 +51,7 @@ export default function ChatHistory({ chatList }) {
             shadow
             className="max-w-[45%] p-1.5 bg-cyan-900 bg-opacity-80 text-white px-3 py-2 mx-1 text-justify"
           >
-            {message["content"]}
+            <Markdown>{message["content"]}</Markdown>
           </Card>
         </div>
       ))}

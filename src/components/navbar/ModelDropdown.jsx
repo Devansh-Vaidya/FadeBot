@@ -10,9 +10,9 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 // Component for selecting and changing a bot model from a dropdown menu
 export default function ModelDropdown({ model, changeModel, botModels }) {
   return (
-    <Dropdown className="text-white bg-zinc-950 bg-opacity-80">
+    <Dropdown className="text-white bg-zinc-900 bg-opacity-80 ">
       <DropdownTrigger>
-        <Button variant="bordered" className="capitalize">
+        <Button variant="bordered" className="capitalize border-gray-400 font-bold text-base">
           {model} <Icon icon="akar-icons:chevron-down" />
         </Button>
       </DropdownTrigger>

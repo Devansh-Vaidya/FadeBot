@@ -15,7 +15,6 @@ export default function App() {
 
   // Change the model
   const changeModel = (modelName) => {
-    console.log(modelName, botModels[model]);
     setModel(modelName);
   };
 

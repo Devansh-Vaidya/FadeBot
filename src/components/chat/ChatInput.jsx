@@ -38,7 +38,7 @@ export default function ChatInput({ updateList }) {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyPress}
         minRows={1}
-        maxRows={5}
+        maxRows={3}
       />
       <Button
         isIconOnly

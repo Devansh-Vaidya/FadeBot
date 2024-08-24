@@ -18,7 +18,7 @@ export default function ClearChat({ clearList }) {
         color="default"
         variant="ghost"
         endContent={<Icon icon="uil:trash" width="22" height="22" />}
-        className="max-w-fit text-orange-400"
+        className="max-w-fit text-amber-500"
         onPress={onOpen}
       >
         Clear Chat

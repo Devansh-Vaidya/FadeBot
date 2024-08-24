@@ -39,7 +39,7 @@ export default function ChatImportExport({
               icon="circum:import"
               width="24"
               height="24"
-              className="hover:text-orange-400"
+              className="hover:text-amber-500"
             />
             <input
               type="file"
@@ -57,7 +57,7 @@ export default function ChatImportExport({
             icon="circum:export"
             width="24"
             height="24"
-            className="hover:text-orange-400"
+            className="hover:text-amber-500"
           />
         </Button>
       </Tooltip>
