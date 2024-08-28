@@ -23,7 +23,7 @@ export default function Body({ model }) {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative z-10">
       <ChatHistory chatList={chatList} />
       <ChatBar
         updateList={updateList}

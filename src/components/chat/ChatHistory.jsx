@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Avatar, Card } from "@nextui-org/react";
 import metaIcon from "../../assets/fadebot.png";
 import fetchAvatarImage from "../../utils/APIcalls";
+import formatMessage from "../../utils/Utility";
 import Markdown from "react-markdown";
 import { Code, CodeBlock, vs2015 } from "react-code-blocks";
 
@@ -19,26 +20,28 @@ const MessageInlineCode = ({ code, language }) => {
   return <Code text={code} language={language} theme={vs2015} />;
 };
 
-const formatMessage = (message) => {
-  let messages = message.split("```");
-
-  return messages.map((line, index) => {
-    if (index % 2 === 0) {
-      return <Markdown key={index}
-      components={{
-        code({ className, children, ...props }) {
-          return (
-            <MessageInlineCode
-              code={String(children).replace(/\n$/, "")}
-            />
-          );
-        },
-      }}>{line}</Markdown>;
+const formatMessages = (message) => {
+  let messages = formatMessage(message);
+  return messages.map((block, index) => {
+    if (block["type"] === "message") {
+      return (
+        <Markdown
+          key={index}
+          components={{
+            code({ className, children, ...props }) {
+              return (
+                <MessageInlineCode code={String(children).replace(/\n$/, "")} />
+              );
+            },
+          }}
+        >
+          {block["content"]}
+        </Markdown>
+      );
     } else {
       // Extract language name if present
-      const firstLineBreak = line.indexOf("\n");
-      const language = line.substring(0, firstLineBreak).trim();
-      const codeContent = line.substring(firstLineBreak + 1);
+      const language = block["content"].substring(3, block["content"].indexOf("\n")).trim();
+      const codeContent = block["content"].substring(block["content"].indexOf("\n") + 1, block["content"].length - 4).trim();
 
       // Render the code block using custom component
       return (
@@ -50,13 +53,13 @@ const formatMessage = (message) => {
               return (
                 <MessageCodeBlock
                   code={String(children).replace(/\n$/, "")}
-                  language={match[1] || language}
+                  language={language}
                   showLineNumbers={false}
                 />
               );
             },
           }}
-          className='m-4'
+          className="m-4"
         >
           {`\`\`\`${language}\n${codeContent}\n\`\`\``}
         </Markdown>
@@ -90,7 +93,7 @@ export default function ChatHistory({ chatList }) {
           key={index}
           className={`flex ${
             index % 2 === 0 ? "flex-row-reverse" : ""
-          } items-center my-2`}
+          } items-center my-2 py-2`}
         >
           {message["role"] === "system" ? (
             <Avatar
@@ -109,9 +112,11 @@ export default function ChatHistory({ chatList }) {
           )}
           <Card
             shadow
-            className="max-w-[45%] px-4 py-2 mx-2 bg-neutral-800 bg-opacity-80 text-justify"
+            className="max-w-[65%] px-4 py-2 mx-2 bg-neutral-800 bg-opacity-80 text-justify"
           >
-            {formatMessage(message["content"])}
+            {message["role"] === "system"
+              ? formatMessages(message["content"])
+              : message["content"]}
           </Card>
         </div>
       ))}
