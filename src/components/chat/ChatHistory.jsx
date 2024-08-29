@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Avatar, Card } from "@nextui-org/react";
 import metaIcon from "../../assets/fadebot.png";
 import fetchAvatarImage from "../../utils/APIcalls";
-import formatMessage from "../../utils/Utility";
+import formatMessage from "../../utils/utility";
 import Markdown from "react-markdown";
 import { Code, CodeBlock, vs2015 } from "react-code-blocks";
 
@@ -40,7 +40,7 @@ const formatMessages = (message) => {
       );
     } else {
       // Extract language name if present
-      const language = block["content"].substring(3, block["content"].indexOf("\n")).trim();
+      const language = block["language"];
       const codeContent = block["content"].substring(block["content"].indexOf("\n") + 1, block["content"].length - 4).trim();
 
       // Render the code block using custom component
@@ -59,7 +59,7 @@ const formatMessages = (message) => {
               );
             },
           }}
-          className="m-4"
+          className="mx-2 my-4"
         >
           {`\`\`\`${language}\n${codeContent}\n\`\`\``}
         </Markdown>
@@ -112,7 +112,7 @@ export default function ChatHistory({ chatList }) {
           )}
           <Card
             shadow
-            className="max-w-[65%] px-4 py-2 mx-2 bg-neutral-800 bg-opacity-80 text-justify"
+            className="max-w-[45%] px-4 py-2 mx-2 bg-neutral-800 bg-opacity-80 text-justify"
           >
             {message["role"] === "system"
               ? formatMessages(message["content"])
