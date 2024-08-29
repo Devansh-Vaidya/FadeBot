@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Avatar, Card } from "@nextui-org/react";
 import metaIcon from "../../assets/fadebot.png";
 import fetchAvatarImage from "../../utils/APIcalls";
-import formatMessage from "../../utils/utility";
+import formatMessage from "../../utils/helpers";
 import Markdown from "react-markdown";
 import { Code, CodeBlock, vs2015 } from "react-code-blocks";
 
