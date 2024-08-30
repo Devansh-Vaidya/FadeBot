@@ -3,7 +3,7 @@ import ChatInput from "./ChatInput";
 import ChatImportExport from "./ChatImportExport";
 
 export default function ChatBar({
-  updateList,
+  updateChat,
   clearList,
   chatList,
   importChatHistory,
@@ -11,7 +11,7 @@ export default function ChatBar({
   return (
     <div className="flex h-[10vh] py-auto border-t-2 border-zinc-800">
       <ClearChat clearList={clearList} />
-      <ChatInput updateList={updateList} />
+      <ChatInput updateChat={updateChat} />
       <ChatImportExport
         chatList={chatList}
         importChatHistory={importChatHistory}
